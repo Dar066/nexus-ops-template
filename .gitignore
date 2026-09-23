@@ -1,0 +1,6 @@
+.env
+*.env
+!*.example.env
+credentials*.json
+*.py
+__pycache__/

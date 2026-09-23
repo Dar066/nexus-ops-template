@@ -1,0 +1,92 @@
+{
+  "name": "Human Approval Gate",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "cf60afa0-9dfc-45b7-8a6b-9e1a52b07a2b",
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "81c5e50f-9b96-41da-8800-c002e8fa3ef8",
+              "name": "status",
+              "value": "pending_approval",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d8fb6de7-f5ed-40f6-9f14-d7ff5d0cf979",
+      "name": "Mark as Pending",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  json: {\n    notification_message: `⚠️ HIGH-RISK LEAD REQUIRES APPROVAL\\n\\nLead Score: ${$input.first().json.lead_score}\\nUrgency: ${$input.first().json.urgency}\\nIntent: ${$input.first().json.intent}\\nMessage: \"${$json.raw_message}\"\\nContact: ${$json.contact_name}`,\n    queue_id: $input.first().json.id,\n    status: \"pending_review\"\n  }\n};"
+      },
+      "id": "0c6bbbc7-68f9-4e05-85fd-e3cadd12e127",
+      "name": "Format Notification",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        0
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Mark as Pending",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark as Pending": {
+      "main": [
+        [
+          {
+            "node": "Format Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "18af5942-b39d-421f-9405-7306896bc936",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "50a7e4020fab59662151611b7907db121f71376423ce5799c9166e5c705543d0"
+  },
+  "nodeGroups": [],
+  "id": "iwsgBMXxBb36N9wS",
+  "tags": []
+}

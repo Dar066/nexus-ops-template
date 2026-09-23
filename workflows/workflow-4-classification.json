@@ -1,0 +1,168 @@
+{
+  "name": "Workflow 4 - AI Classification & Lead Scoring",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "2d0016b4-ae7d-4a4e-adc2-fdd241a20423",
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "groqApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"openai/gpt-oss-120b\",\n  \"temperature\": 0.3,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a lead classification engine for a healthcare clinic. Analyze customer inquiries and classify them. Respond ONLY with valid JSON.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Classify this inquiry from {{ $json.contact_name }} (channel: {{ $json.channel }}): \\\"{{ $json.raw_message }}\\\"\\n\\nRespond with ONLY this JSON structure, no markdown:\\n{\\n  \\\"intent\\\": \\\"faq|pricing|booking|complaint|screening_info|other\\\",\\n  \\\"urgency\\\": \\\"low|medium|high\\\",\\n  \\\"lead_score\\\": <integer 0-100>,\\n  \\\"summary\\\": \\\"<one sentence>\\\"\\n}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "aa962422-6ba7-4c02-9dbc-5971706524e8",
+      "name": "Classify with Groq",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        224,
+        0
+      ],
+      "credentials": {
+        "groqApi": {
+          "id": "cS25baJmRn9JQANw",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const responseContent = $input.first().json.choices[0].message.content;\n\n// Preserve original lead input (Groq response replaced it upstream)\nconst originalInput = $('When Executed by Another Workflow').first().json;\n\n// Parse the JSON string from Groq\nlet classification;\ntry {\n  classification = JSON.parse(responseContent);\n} catch (e) {\n  // Fallback if JSON parsing fails\n  classification = {\n    intent: \"other\",\n    urgency: \"medium\",\n    lead_score: 50,\n    summary: \"Classification failed — unable to parse response\"\n  };\n}\n\n// Validate required fields\nconst isValid = classification.intent && classification.urgency && \n  typeof classification.lead_score === 'number' && classification.summary;\n\nreturn {\n  json: {\n    ...originalInput,\n    ...classification,\n    valid: isValid,\n    raw_response: responseContent\n  }\n};"
+      },
+      "id": "3904e497-c8f6-4882-98c4-75fef302d1f2",
+      "name": "Validate Classification",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO ai_decisions (lead_id, intent, urgency, lead_score, raw_prompt, raw_response)\nVALUES ($1, $2, $3, $4, $5, $6)\nRETURNING id;",
+        "options": {
+          "queryReplacement": "={{ [$json.lead_id, $json.intent, $json.urgency, $json.lead_score, \"Classify: \" + $json.raw_message, $json.raw_response] }}"
+        }
+      },
+      "id": "3d020924-b790-41ed-832d-fe071e9036a3",
+      "name": "Log AI Decision",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        672,
+        0
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "hpxDbgwVw0RTeE3E",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE leads\nSET intent = $1,\n    urgency = $2,\n    lead_score = $3,\n    status = 'classified'\nWHERE id = $4\nRETURNING id;",
+        "options": {
+          "queryReplacement": "={{ [$json.intent, $json.urgency, $json.lead_score, $json.lead_id] }}"
+        }
+      },
+      "id": "7e4547af-d32d-4910-a111-783bef59ad9f",
+      "name": "update lead",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        896,
+        0
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "hpxDbgwVw0RTeE3E",
+          "name": "Postgres account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Classify with Groq",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify with Groq": {
+      "main": [
+        [
+          {
+            "node": "Validate Classification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Classification": {
+      "main": [
+        [
+          {
+            "node": "Log AI Decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log AI Decision": {
+      "main": [
+        [
+          {
+            "node": "update lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update lead": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "88cd0eef-755d-4f03-8c85-90c3b5b36c33",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "50a7e4020fab59662151611b7907db121f71376423ce5799c9166e5c705543d0"
+  },
+  "nodeGroups": [],
+  "id": "ombMeKhURGUgrTy7",
+  "tags": []
+}

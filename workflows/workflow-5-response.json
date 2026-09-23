@@ -1,0 +1,100 @@
+{
+  "name": "Workflow 5 - RAG Response Generation",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "raw_message"
+            }
+          ]
+        }
+      },
+      "id": "25b0dcdc-ff7e-46d0-a341-e428085e29b4",
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        144,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "groqApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"openai/gpt-oss-120b\",\n  \"temperature\": 0.3,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are a helpful healthcare clinic assistant for HAPS Clinic in Lahore. Answer questions about our cardiac screening services using the context below. If the answer isn't in the context, say you'll have a team member follow up. Never invent services, prices, or medical information.\\n\\nHAPS Clinic Services:\\n- Comprehensive Cardiac Screening (PKR 15,000, 2-3 hours)\\n- Quick Check-up (PKR 5,000, 30 min)\\n- Stress Test (PKR 10,000, 45 min)\\n- Follow-up Consultation (PKR 5,000, 30 min)\\n\\nHours: Monday-Saturday, 11 AM - 9 PM\\nContact: +923001234567 (WhatsApp), 042-3123-4567 (Phone)\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"{{ $json.raw_message }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "2bb76433-e5a7-4deb-892b-e05ee16a52b6",
+      "name": "Generate Response",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        320,
+        0
+      ],
+      "credentials": {
+        "groqApi": {
+          "id": "cS25baJmRn9JQANw",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const content = $input.first().json.choices[0].message.content;\n\nreturn {\n  json: {\n    response_text: content,\n    response_valid: content && content.length > 0,\n    raw_response: content\n  }\n};"
+      },
+      "id": "80de655a-7057-4e7c-b363-9a497c1d776a",
+      "name": "Extract Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        624,
+        0
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Generate Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Response": {
+      "main": [
+        [
+          {
+            "node": "Extract Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "c7b48091-b75e-4d22-83f5-417a00a2b3ed",
+  "meta": {
+    "instanceId": "50a7e4020fab59662151611b7907db121f71376423ce5799c9166e5c705543d0"
+  },
+  "nodeGroups": [],
+  "id": "GzKdiV648nA0KjCn",
+  "tags": []
+}
