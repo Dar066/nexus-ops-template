@@ -89,5 +89,5 @@ Clinics, real estate agencies, service businesses, and any SMB receiving custome
 
 **Adnan** — AI Automation & Full-Stack Developer, Lahore
 - GitHub: [Dar066](https://github.com/Dar066)
-- Email: YOUR_EMAIL_HERE
+- Email: dar9435@gmail.com
 - LinkedIn: YOUR_LINKEDIN_URL_HERE
