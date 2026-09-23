@@ -28,6 +28,26 @@ Workflow 5: Response Generation (Groq)
     Generate grounded reply → Extract response
 ```
 
+## Screenshots
+
+### Workflow 1 — WhatsApp Intake
+![WhatsApp Intake](./screenshots/workflow-1-whatsapp-intake.png)
+
+### Workflow 4 — AI Classification & Lead Scoring
+![AI Classification](./screenshots/workflow-4-classification.png)
+
+### Workflow 5 — Response Generation
+![Response Generation](./screenshots/workflow-5-response.png)
+
+### Workflow 6 — Human Approval Gate (roadmap)
+![Approval Gate](./screenshots/workflow-6-approval-gate.png)
+
+### Supabase — Conversations
+![Conversations table](./screenshots/supabase-conversations.png)
+
+### Supabase — AI Decisions (audit trail)
+![AI decisions table](./screenshots/supabase-ai-decisions.png)
+
 ## Tech Stack
 
 | Layer | Tool |
