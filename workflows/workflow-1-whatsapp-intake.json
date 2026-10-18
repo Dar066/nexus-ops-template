@@ -7,13 +7,13 @@
         "path": "/webhook/whatsapp-inbound",
         "options": {}
       },
-      "id": "4c1ddbba-86f9-4eb9-b6b1-d13499c2ff7b",
+      "id": "7349cc7f-5f33-4e0f-8e5f-d418a01ed024",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -368,
-        0
+        0,
+        64
       ],
       "webhookId": "dce6da2d-8f00-4f29-a813-48aa7a9ba133"
     },
@@ -21,13 +21,13 @@
       "parameters": {
         "jsCode": "const input = $input.first().json.body || $input.first().json;\n\nconst from = (input.From || '').trim();\nconst body = (input.Body || '').trim();\nconst waId = (input.WaId || from.replace('whatsapp:', '')).trim();\nconst profileName = (input.ProfileName || 'Unknown').trim();\nconst messageSid = (input.MessageSid || '').trim();\n\nif (!from || !body) {\n  throw new Error(\n    `Invalid WhatsApp webhook payload — missing From or Body. Received keys: ${Object.keys(input).join(', ')}`\n  );\n}\n\nif (input.MessageStatus && !body) {\n  throw new Error('Status callback received on inbound-message webhook — check Twilio config');\n}\n\nreturn {\n  json: {\n    from,\n    body,\n    waId,\n    profileName,\n    messageSid,\n  }\n};"
       },
-      "id": "cb7b8ba0-ce8a-4437-ba72-4711e8a113e0",
+      "id": "f9237eb8-4c49-47c8-8b70-3cd99791af16",
       "name": "Validate Request",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -192,
-        0
+        176,
+        64
       ]
     },
     {
@@ -68,13 +68,13 @@
         },
         "options": {}
       },
-      "id": "17288fb8-2d09-41c3-92ef-9fff4d26fd31",
+      "id": "9bd2e42d-338c-427b-abbf-1d6978f06946",
       "name": "Normalize Data",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        -16,
-        0
+        352,
+        64
       ]
     },
     {
@@ -85,17 +85,17 @@
           "queryReplacement": "={{ $json.contact_id }}"
         }
       },
-      "id": "71ef7637-566f-4f13-b85f-b5a2cf76160c",
+      "id": "36d758dd-323d-4d7d-b345-d7bdf506395e",
       "name": "Database Lookup",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.7,
       "position": [
-        192,
-        0
+        560,
+        64
       ],
       "credentials": {
         "postgres": {
-          "id": "hpxDbgwVw0RTeE3E",
+          "id": "n9nCCsU8RmN8S1Rr",
           "name": "Postgres account 2"
         }
       }
@@ -104,13 +104,13 @@
       "parameters": {
         "jsCode": "const lookup = $input.first().json;\nconst normalized = $('Normalize Data').first().json;\n\nreturn [{\n  json: {\n    ...normalized,\n    match_count: Number(lookup.match_count) || 0,\n    lead_exists: Number(lookup.match_count) > 0,\n    existing_id: lookup.id,\n    existing_status: lookup.status,\n    existing_lead_score: lookup.lead_score\n  }\n}];"
       },
-      "id": "fa123740-9002-4bf6-a30d-9480a1fd1d9f",
+      "id": "e4a833a1-d6b4-4de6-a0cb-efc06ff3ef30",
       "name": "Prepare Lookup Result",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        400,
-        0
+        768,
+        64
       ]
     },
     {
@@ -139,13 +139,13 @@
         "looseTypeValidation": true,
         "options": {}
       },
-      "id": "a2f6ad22-6f5b-47d9-982b-068594e28069",
+      "id": "0bcb3bea-383f-442f-9a19-f2f7d07fa7c3",
       "name": "Lead Exists?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        624,
-        0
+        992,
+        64
       ]
     },
     {
@@ -156,17 +156,17 @@
           "queryReplacement": "={{ $json.contact_id }}"
         }
       },
-      "id": "feedb772-0601-48ab-beee-06d9b88c5ee6",
+      "id": "3b8e5526-737a-42b1-be15-7e06e70a7966",
       "name": "Update Existing Lead",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.7,
       "position": [
-        864,
-        -64
+        1232,
+        0
       ],
       "credentials": {
         "postgres": {
-          "id": "hpxDbgwVw0RTeE3E",
+          "id": "n9nCCsU8RmN8S1Rr",
           "name": "Postgres account 2"
         }
       }
@@ -176,20 +176,20 @@
         "operation": "executeQuery",
         "query": "INSERT INTO conversations (lead_id, direction, channel, message)\nVALUES ($1, 'inbound', $2, $3)\nRETURNING lead_id;",
         "options": {
-          "queryReplacement": "={{ $json.id }}, ={{ $('Prepare Lookup Result').first().json.channel }}, ={{ $('Prepare Lookup Result').first().json.raw_message }}"
+          "queryReplacement": "={{ [ $json.id, $('Prepare Lookup Result').first().json.channel, $('Prepare Lookup Result').first().json.raw_message ] }}"
         }
       },
-      "id": "7d7b9359-5954-4c37-8b90-985e47c32b1e",
+      "id": "4c8f28f3-b5f4-414b-9ec5-d44599817bde",
       "name": "Log Conversation",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.7,
       "position": [
-        1120,
-        32
+        1488,
+        96
       ],
       "credentials": {
         "postgres": {
-          "id": "hpxDbgwVw0RTeE3E",
+          "id": "n9nCCsU8RmN8S1Rr",
           "name": "Postgres account 2"
         }
       }
@@ -198,10 +198,9 @@
       "parameters": {
         "workflowId": {
           "__rl": true,
-          "value": "ombMeKhURGUgrTy7",
-          "mode": "list",
-          "cachedResultUrl": "/workflow/ombMeKhURGUgrTy7",
-          "cachedResultName": "Workflow 4 - AI Classification & Lead Scoring"
+          "value": "8qQgPIuQckKJovsk",
+          "mode": "id",
+          "cachedResultUrl": "/workflow/8qQgPIuQckKJovsk"
         },
         "workflowInputs": {
           "mappingMode": "defineBelow",
@@ -213,13 +212,13 @@
         },
         "options": {}
       },
-      "id": "f8b29ab4-bcfe-41cd-8b02-de94030249ce",
+      "id": "5f678d30-f595-4f7e-880e-a3c904109894",
       "name": "Call 'Workflow 4 - AI Classification & Lead Scoring'",
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        1536,
-        32
+        1904,
+        96
       ]
     },
     {
@@ -227,20 +226,20 @@
         "operation": "executeQuery",
         "query": "INSERT INTO leads (contact_id, contact_name, channel, status)\nVALUES ($1, $2, $3, 'new')\nRETURNING id;",
         "options": {
-          "queryReplacement": "={{ $json.contact_id }}, ={{ $json.contact_name }}, ={{ $json.channel }}"
+          "queryReplacement": "={{ [ $json.contact_id, $json.contact_name, $json.channel ] }}"
         }
       },
-      "id": "aa83514f-c95f-4b10-b207-ab04a78595bc",
+      "id": "d10e933f-ead9-476e-ab56-4c06aaf813da",
       "name": "Insert New Lead",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.7,
       "position": [
-        864,
-        96
+        1232,
+        160
       ],
       "credentials": {
         "postgres": {
-          "id": "hpxDbgwVw0RTeE3E",
+          "id": "n9nCCsU8RmN8S1Rr",
           "name": "Postgres account 2"
         }
       }
@@ -277,23 +276,22 @@
         },
         "options": {}
       },
-      "id": "0f294fe5-558a-4cf5-80ec-bb1c69500e71",
+      "id": "44a04108-8f56-4699-a095-3cca53ba374e",
       "name": "Run Classification",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1328,
-        32
+        1696,
+        96
       ]
     },
     {
       "parameters": {
         "workflowId": {
           "__rl": true,
-          "value": "GzKdiV648nA0KjCn",
-          "mode": "list",
-          "cachedResultUrl": "/workflow/GzKdiV648nA0KjCn",
-          "cachedResultName": "Workflow 5 - RAG Response Generation"
+          "value": "9acUKo4epaTVTndD",
+          "mode": "id",
+          "cachedResultUrl": "/workflow/9acUKo4epaTVTndD"
         },
         "workflowInputs": {
           "mappingMode": "defineBelow",
@@ -323,10 +321,10 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        1760,
-        32
+        2128,
+        96
       ],
-      "id": "21732840-9833-4124-96ff-ef33abd28878",
+      "id": "df93c91b-2081-4d6c-a3a7-8cab045151c7",
       "name": "Call 'Workflow 5 - RAG Response Generation'"
     }
   ],
@@ -461,17 +459,16 @@
       ]
     }
   },
-  "active": true,
+  "active": false,
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "2f4cf6e1-a2b5-453d-9ec9-414454f1e548",
+  "versionId": "eb610e5d-f7af-426e-b391-fb53df2f6c8b",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "50a7e4020fab59662151611b7907db121f71376423ce5799c9166e5c705543d0"
+    "instanceId": "75e9923ddbe32d8f4d7116f6273b5a0438837986df6a2fae1f278c1922e6ee47"
   },
   "nodeGroups": [],
-  "id": "zalLHqUCGIV2Jdec",
+  "id": "jF7puxLNfOdqaR84",
   "tags": []
 }
