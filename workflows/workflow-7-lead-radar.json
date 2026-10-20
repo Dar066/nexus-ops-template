@@ -12,18 +12,18 @@
           ]
         }
       },
-      "id": "da174afe-359c-4b1e-a06f-305be0c662b6",
+      "id": "1eb7e2d1-1b59-4987-bdba-b54e942a228e",
       "name": "Every 4 Hours",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
         0,
-        144
+        200
       ]
     },
     {
       "parameters": {
-        "url": "https://www.freelancer.com/api/projects/0.1/projects/active/?limit=100&full_description=true",
+        "url": "https://www.freelancer.com/api/projects/0.1/projects/active/?limit=100&full_description=true&user_details=true&user_status=true&user_employer_reputation=true&user_country_details=true",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -41,13 +41,13 @@
           "timeout": 30000
         }
       },
-      "id": "26964900-f3ca-4444-9b7a-63dfef8901c2",
+      "id": "b27220e4-e08d-4ca0-a493-313c35b7e382",
       "name": "Fetch Freelancer",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        224,
-        144
+        220,
+        200
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -75,13 +75,13 @@
           "timeout": 30000
         }
       },
-      "id": "fd7aacbd-ecf5-4337-86b9-2e604b44d009",
+      "id": "0aef2041-5cc5-4357-a7e7-aff71f1e70d2",
       "name": "Fetch RemoteOK",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        448,
-        144
+        440,
+        200
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -109,13 +109,13 @@
           "timeout": 30000
         }
       },
-      "id": "b6de679d-3cde-41cd-9fec-769fa42eb447",
+      "id": "b05539f2-b951-4fc2-a500-7de91cf73e3d",
       "name": "Fetch Jobicy",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        672,
-        144
+        660,
+        200
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -143,13 +143,13 @@
           "timeout": 30000
         }
       },
-      "id": "426631d1-3476-48b6-9e87-a49a53a06a14",
+      "id": "7201846c-b409-49a6-b832-3d83fcc5326c",
       "name": "Fetch Himalayas",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
         880,
-        144
+        200
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -177,13 +177,13 @@
           "timeout": 30000
         }
       },
-      "id": "a7c04cbc-0343-46ee-ac88-d806e7b5a943",
+      "id": "eca2e471-7443-4c84-9ab7-c642e6438100",
       "name": "Fetch Working Nomads",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        1104,
-        144
+        1100,
+        200
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -211,13 +211,13 @@
           "timeout": 30000
         }
       },
-      "id": "5f771c92-d4c9-476b-a2c0-23373b9a2fdd",
+      "id": "2473b20d-22f1-4b3c-bab6-0db5b5310e95",
       "name": "Fetch Arbeitnow",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        1328,
-        144
+        1320,
+        200
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -245,13 +245,13 @@
           "timeout": 30000
         }
       },
-      "id": "7cb742ab-bf8c-4ae7-8ff3-43450e27c36a",
+      "id": "8a2573a6-0653-4b88-965e-7c579237a32c",
       "name": "Fetch Hacker News",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        1552,
-        144
+        1540,
+        200
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -264,13 +264,13 @@
         "url": "https://weworkremotely.com/remote-jobs.rss",
         "options": {}
       },
-      "id": "43997b47-b71f-47dc-a3e4-98a9f94cbb99",
+      "id": "00a0128e-0925-41e4-a687-1d4e09b5867c",
       "name": "Read We Work Remotely",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.1,
       "position": [
         1760,
-        144
+        200
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -283,13 +283,13 @@
         "url": "https://www.reddit.com/r/forhire/new/.rss",
         "options": {}
       },
-      "id": "0bcd6177-35c5-4139-8944-4a37f85ed790",
+      "id": "bc4734af-c471-47bd-86a9-bf6ffef09c23",
       "name": "Read Reddit ForHire",
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.1,
       "position": [
-        1984,
-        144
+        1980,
+        200
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -323,13 +323,13 @@
         "looseTypeValidation": true,
         "options": {}
       },
-      "id": "5f915e53-1f0b-404e-aac1-570546863c5b",
+      "id": "8edbbec9-ae6b-4a2d-be12-495ea3cecb03",
       "name": "Remotive Due? (3x/day)",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2208,
-        144
+        2200,
+        200
       ],
       "executeOnce": true,
       "notes": "Remotive allows max 4 calls/day, so it is only fetched at 8 AM, 4 PM and 8 PM."
@@ -354,13 +354,13 @@
           "timeout": 30000
         }
       },
-      "id": "efb83c3d-24f4-42da-9b62-62d8cd1e3c29",
+      "id": "382e429f-c73e-4aa6-b538-ecd93218d491",
       "name": "Fetch Remotive",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        2432,
-        0
+        2420,
+        60
       ],
       "executeOnce": true,
       "retryOnFail": true,
@@ -370,36 +370,36 @@
     },
     {
       "parameters": {
-        "jsCode": "// Lead Radar: merge all feeds, keep relevant + recent posts, cap volume.\n// Weighted skill keywords: 3 = core service, 2 = strong fit, 1 = general full-stack work\nconst KEYWORDS = {\n  'n8n': 3, 'make.com': 3, 'zapier': 3, 'automation': 3, 'automate': 3, 'workflow automation': 3,\n  'whatsapp': 3, 'whatsapp bot': 3, 'chatbot': 3, 'chat bot': 3, 'ai chatbot': 3, 'ai agent': 3, 'ai assistant': 3,\n  'voice ai': 3, 'voice agent': 3, 'llm': 3, 'rag': 3, 'openai': 3, 'gpt': 3, 'groq': 3,\n  'shopify': 3, 'woocommerce': 3, 'e-commerce': 3, 'ecommerce': 3, 'online store': 3,\n  'api integration': 2, 'integration': 2, 'integrations': 2, 'webhook': 2, 'twilio': 2, 'crm': 2,\n  'stripe': 2, 'payment gateway': 2, 'payment integration': 2, 'supabase': 2,\n  'full stack': 2, 'full-stack': 2, 'fullstack': 2, 'next.js': 2, 'nextjs': 2,\n  'website': 1, 'web development': 1, 'web developer': 1, 'web app': 1, 'landing page': 1,\n  'react': 1, 'node.js': 1, 'nodejs': 1, 'python': 1, 'wordpress': 1, 'api': 1, 'rest api': 1\n};\nconst BLOCK = ['unpaid', 'equity only', 'security clearance', 'us citizens only', 'must be located in the us'];\nconst MAX_AGE_DAYS = 3;   // ignore posts older than this\nconst MAX_PER_RUN = 15;   // Groq free tier: 15 posts x 6 runs = 90 calls/day, about half the daily token limit\n\nconst strip = (html) => String(html || '')\n  .replace(/<[^>]*>/g, ' ')\n  .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, \"'\").replace(/&quot;/g, '\"')\n  .replace(/\\s+/g, ' ').trim();\n\nconst toIso = (v) => {\n  if (v === undefined || v === null || v === '') return null;\n  const d = typeof v === 'number' ? new Date(v < 1e12 ? v * 1000 : v) : new Date(v);\n  return isNaN(d.getTime()) ? null : d.toISOString();\n};\n\n// whole-word match, so 'rag' does not match 'storage' or 'average'\nconst hasWord = (text, k) => new RegExp('(^|[^a-z0-9])' + k.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '([^a-z0-9]|$)').test(text);\n\nconst safe = (nodeName) => {\n  try { return $(nodeName).all().map(i => i.json); } catch (e) { return []; }\n};\n\nconst out = [];\n\n// 1) Freelancer.com projects (gig work)\nfor (const r of safe('Fetch Freelancer')) {\n  for (const p of (r.result && r.result.projects) || []) {\n    const cur = (p.currency && p.currency.code) || '';\n    const b = p.budget || {};\n    out.push({\n      source: 'freelancer',\n      external_id: String(p.id),\n      title: p.title,\n      company: 'Freelancer.com client',\n      url: p.seo_url ? 'https://www.freelancer.com/projects/' + p.seo_url : 'https://www.freelancer.com/projects/' + p.id,\n      location: 'Remote (freelance)',\n      budget: (b.minimum || b.maximum) ? `${b.minimum || '?'}-${b.maximum || '?'} ${cur}${p.type === 'hourly' ? '/hr' : ''}` : '',\n      description: strip(p.description || p.preview_description),\n      posted_at: toIso(p.time_submitted),\n    });\n  }\n}\n\n// 2) Remotive\nfor (const r of safe('Fetch Remotive')) {\n  for (const j of r.jobs || []) {\n    out.push({\n      source: 'remotive',\n      external_id: String(j.id),\n      title: j.title,\n      company: j.company_name,\n      url: j.url,\n      location: j.candidate_required_location || '',\n      budget: j.salary || '',\n      description: strip(j.description),\n      posted_at: toIso(j.publication_date),\n    });\n  }\n}\n\n// 3) RemoteOK (first array element is a legal notice, skipped by the id check)\nfor (const j of safe('Fetch RemoteOK')) {\n  if (!j.id || !j.position) continue;\n  out.push({\n    source: 'remoteok',\n    external_id: String(j.id),\n    title: j.position,\n    company: j.company,\n    url: j.url || ('https://remoteok.com/remote-jobs/' + j.id),\n    location: j.location || '',\n    budget: (j.salary_min || j.salary_max) ? `${j.salary_min || '?'}-${j.salary_max || '?'} USD/yr` : '',\n    description: strip(j.description) + (Array.isArray(j.tags) ? ' Tags: ' + j.tags.join(', ') : ''),\n    posted_at: toIso(j.date || j.epoch),\n  });\n}\n\n// 4) Jobicy\nfor (const r of safe('Fetch Jobicy')) {\n  for (const j of r.jobs || []) {\n    out.push({\n      source: 'jobicy',\n      external_id: String(j.id),\n      title: j.jobTitle,\n      company: j.companyName,\n      url: j.url,\n      location: j.jobGeo || '',\n      budget: (j.salaryMin || j.salaryMax) ? `${j.salaryMin || '?'}-${j.salaryMax || '?'} ${j.salaryCurrency || ''}${j.salaryPeriod ? '/' + j.salaryPeriod : ''}` : '',\n      description: strip(j.jobDescription || j.jobExcerpt),\n      posted_at: toIso(j.pubDate),\n    });\n  }\n}\n\n// 5) Himalayas (search API)\nfor (const r of safe('Fetch Himalayas')) {\n  for (const j of r.jobs || []) {\n    const link = (typeof j.guid === 'string' && j.guid.startsWith('http')) ? j.guid : j.applicationLink;\n    out.push({\n      source: 'himalayas',\n      external_id: String(j.guid || link),\n      title: j.title,\n      company: j.companyName,\n      url: link,\n      location: Array.isArray(j.locationRestrictions) && j.locationRestrictions.length ? j.locationRestrictions.join(', ') : 'Worldwide',\n      budget: (j.minSalary || j.maxSalary) ? `${j.minSalary || '?'}-${j.maxSalary || '?'} ${j.currency || ''}${j.salaryPeriod ? '/' + j.salaryPeriod : ''}` : '',\n      description: strip(j.description || j.excerpt),\n      posted_at: toIso(j.pubDate),\n    });\n  }\n}\n\n// 6) Working Nomads (returns a plain array of jobs)\nfor (const j of safe('Fetch Working Nomads')) {\n  if (!j.url || !j.title) continue;\n  out.push({\n    source: 'workingnomads',\n    external_id: String(j.url),\n    title: j.title,\n    company: j.company_name,\n    url: j.url,\n    location: j.location || '',\n    budget: '',\n    description: strip(j.description) + (j.tags ? ' Tags: ' + j.tags : ''),\n    posted_at: toIso(j.pub_date),\n  });\n}\n\n// 7) Arbeitnow (remote jobs only)\nfor (const r of safe('Fetch Arbeitnow')) {\n  for (const j of r.data || []) {\n    if (!j.remote) continue;\n    out.push({\n      source: 'arbeitnow',\n      external_id: String(j.slug || j.url),\n      title: j.title,\n      company: j.company_name,\n      url: j.url,\n      location: j.location || 'Remote',\n      budget: '',\n      description: strip(j.description) + (Array.isArray(j.tags) ? ' Tags: ' + j.tags.join(', ') : ''),\n      posted_at: toIso(j.created_at),\n    });\n  }\n}\n\n// 8) Hacker News: comments in the monthly \"Who is hiring\" / \"Seeking freelancer\" threads\nfor (const r of safe('Fetch Hacker News')) {\n  for (const h of r.hits || []) {\n    const story = String(h.story_title || '').toLowerCase();\n    if (!story.includes('hiring') && !story.includes('freelancer')) continue;\n    const text = strip(h.comment_text);\n    if (!text) continue;\n    out.push({\n      source: 'hackernews',\n      external_id: String(h.objectID),\n      title: text.slice(0, 120),\n      company: text.split('|')[0].slice(0, 80),\n      url: 'https://news.ycombinator.com/item?id=' + h.objectID,\n      location: '',\n      budget: '',\n      description: text + ' (Thread: ' + h.story_title + ')',\n      posted_at: toIso(h.created_at),\n    });\n  }\n}\n\n// 9) We Work Remotely (RSS)\nfor (const j of safe('Read We Work Remotely')) {\n  if (!j.link || !j.title) continue;\n  const parts = String(j.title).split(':');\n  out.push({\n    source: 'weworkremotely',\n    external_id: String(j.guid || j.link),\n    title: parts.length > 1 ? parts.slice(1).join(':').trim() : j.title,\n    company: parts.length > 1 ? parts[0].trim() : '',\n    url: j.link,\n    location: j.region || '',\n    budget: '',\n    description: strip(j.content || j.contentSnippet || j.description),\n    posted_at: toIso(j.isoDate || j.pubDate),\n  });\n}\n\n// 10) Reddit r/forhire (RSS) — only [Hiring] posts\nfor (const j of safe('Read Reddit ForHire')) {\n  if (!j.link || !j.title || !/\\[hiring\\]/i.test(j.title)) continue;\n  out.push({\n    source: 'reddit_forhire',\n    external_id: String(j.id || j.guid || j.link),\n    title: String(j.title).replace(/\\[hiring\\]/i, '').trim(),\n    company: 'Reddit r/forhire',\n    url: j.link,\n    location: '',\n    budget: '',\n    description: strip(j.content || j.contentSnippet),\n    posted_at: toIso(j.isoDate || j.pubDate),\n  });\n}\n\nconst cutoff = Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000;\nconst seen = new Set();\nconst leads = out\n  .filter(l => l.external_id && l.title && l.url)\n  .map(l => {\n    const text = (l.title + ' ' + l.description).toLowerCase();\n    const title = String(l.title).toLowerCase();\n    let kw = 0;\n    for (const [k, w] of Object.entries(KEYWORDS)) {\n      if (hasWord(text, k)) kw += w;\n      if (hasWord(title, k)) kw += w;          // matches in the title count double\n    }\n    return { ...l, kw, blocked: BLOCK.some(k => text.includes(k)) };\n  })\n  .filter(l => l.kw >= 3 && !l.blocked)       // at least one core skill, or several general ones\n  .filter(l => !l.posted_at || new Date(l.posted_at).getTime() >= cutoff)\n  .filter(l => { const k = l.source + ':' + l.external_id; if (seen.has(k)) return false; seen.add(k); return true; })\n  .sort((a, b) => (b.kw - a.kw) || String(b.posted_at).localeCompare(String(a.posted_at)))   // best skill match first\n  .slice(0, MAX_PER_RUN)                         // the rest wait for the next run (they are not saved yet)\n  .map(({ kw, blocked, ...l }) => ({ ...l, description: l.description.slice(0, 1000) }));   // shorter text = fewer Groq tokens\n\nif (leads.length === 0) return [];\n// One item carrying all leads as JSON -> a single INSERT ... ON CONFLICT DO NOTHING\nreturn [{ json: { count: leads.length, payload: JSON.stringify(leads) } }];\n"
+        "jsCode": "// Lead Radar: merge all feeds, keep relevant + recent posts, cap volume.\n// Weighted skill keywords: 3 = core service, 2 = strong fit, 1 = general full-stack work\nconst KEYWORDS = {\n  'n8n': 3, 'make.com': 3, 'zapier': 3, 'automation': 3, 'automate': 3, 'workflow automation': 3,\n  'whatsapp': 3, 'whatsapp bot': 3, 'chatbot': 3, 'chat bot': 3, 'ai chatbot': 3, 'ai agent': 3, 'ai assistant': 3,\n  'voice ai': 3, 'voice agent': 3, 'llm': 3, 'rag': 3, 'openai': 3, 'gpt': 3, 'groq': 3,\n  'shopify': 3, 'woocommerce': 3, 'e-commerce': 3, 'ecommerce': 3, 'online store': 3,\n  'api integration': 2, 'integration': 2, 'integrations': 2, 'webhook': 2, 'twilio': 2, 'crm': 2,\n  'stripe': 2, 'payment gateway': 2, 'payment integration': 2, 'supabase': 2,\n  'full stack': 2, 'full-stack': 2, 'fullstack': 2, 'next.js': 2, 'nextjs': 2,\n  'website': 1, 'web development': 1, 'web developer': 1, 'web app': 1, 'landing page': 1,\n  'react': 1, 'node.js': 1, 'nodejs': 1, 'python': 1, 'wordpress': 1, 'api': 1, 'rest api': 1\n};\nconst BLOCK = ['unpaid', 'equity only', 'security clearance', 'us citizens only', 'must be located in the us',\n  'commission only', 'commission-only', 'registration fee', 'pay to apply', 'training fee', 'contact on telegram'];\n\n// Trust rules: only reliable, established clients/employers\nconst MIN_CLIENT_REVIEWS = 1;      // Freelancer.com client must have at least 1 review as an employer\nconst MIN_CLIENT_RATING = 4.0;     // ...with an average rating of 4.0/5 or better, and verified payment\nconst UNTRUSTED_SOURCES = ['reddit_forhire'];   // anonymous posters, no way to verify the client\nconst MAX_AGE_DAYS = 3;   // ignore posts older than this\nconst MAX_PER_RUN = 15;   // Groq free tier: 15 posts x 6 runs = 90 calls/day, about half the daily token limit\n// How many Groq checks each site may use per run (based on real results: Freelancer scores best)\nconst SOURCE_CAP = { freelancer: 6, reddit_forhire: 3, hackernews: 3, default: 2 };\nconst capOf = (src) => SOURCE_CAP[src] || SOURCE_CAP.default;\n\nconst strip = (html) => String(html || '')\n  .replace(/<[^>]*>/g, ' ')\n  .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, \"'\").replace(/&quot;/g, '\"')\n  .replace(/\\s+/g, ' ').trim();\n\nconst toIso = (v) => {\n  if (v === undefined || v === null || v === '') return null;\n  const d = typeof v === 'number' ? new Date(v < 1e12 ? v * 1000 : v) : new Date(v);\n  return isNaN(d.getTime()) ? null : d.toISOString();\n};\n\n// whole-word match, so 'rag' does not match 'storage' or 'average'\nconst hasWord = (text, k) => new RegExp('(^|[^a-z0-9])' + k.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '([^a-z0-9]|$)').test(text);\n\nconst safe = (nodeName) => {\n  try { return $(nodeName).all().map(i => i.json); } catch (e) { return []; }\n};\n\nconst out = [];\n\n// 1) Freelancer.com projects (gig work) — keep only verified, well-reviewed clients\nconst stats = { freelancer_seen: 0, freelancer_trusted: 0 };\nfor (const r of safe('Fetch Freelancer')) {\n  const users = (r.result && r.result.users) || {};\n  for (const p of (r.result && r.result.projects) || []) {\n    stats.freelancer_seen++;\n    const u = users[p.owner_id] || users[String(p.owner_id)] || {};\n    const st = u.status || {};\n    const rep = (u.employer_reputation && u.employer_reputation.entire_history) || {};\n    const reviews = Number(rep.reviews) || 0;\n    const rating = Number(rep.overall) || 0;\n    if (st.payment_verified !== true || reviews < MIN_CLIENT_REVIEWS || rating < MIN_CLIENT_RATING) continue;\n    stats.freelancer_trusted++;\n    const cur = (p.currency && p.currency.code) || '';\n    const b = p.budget || {};\n    const country = (u.location && u.location.country && u.location.country.name) || '';\n    out.push({\n      source: 'freelancer',\n      external_id: String(p.id),\n      title: p.title,\n      company: 'Freelancer.com client' + (u.username ? ' (' + u.username + ')' : ''),\n      url: p.seo_url ? 'https://www.freelancer.com/projects/' + p.seo_url : 'https://www.freelancer.com/projects/' + p.id,\n      location: 'Remote (freelance)',\n      budget: (b.minimum || b.maximum) ? `${b.minimum || '?'}-${b.maximum || '?'} ${cur}${p.type === 'hourly' ? '/hr' : ''}` : '',\n      client_info: `Payment verified; ${reviews} employer reviews, rating ${rating.toFixed(1)}/5` + (country ? `; based in ${country}` : ''),\n      description: strip(p.description || p.preview_description),\n      posted_at: toIso(p.time_submitted),\n    });\n  }\n}\n\n// 2) Remotive\nfor (const r of safe('Fetch Remotive')) {\n  for (const j of r.jobs || []) {\n    out.push({\n      source: 'remotive',\n      external_id: String(j.id),\n      title: j.title,\n      company: j.company_name,\n      url: j.url,\n      location: j.candidate_required_location || '',\n      budget: j.salary || '',\n      description: strip(j.description),\n      posted_at: toIso(j.publication_date),\n    });\n  }\n}\n\n// 3) RemoteOK (first array element is a legal notice, skipped by the id check)\nfor (const j of safe('Fetch RemoteOK')) {\n  if (!j.id || !j.position) continue;\n  out.push({\n    source: 'remoteok',\n    external_id: String(j.id),\n    title: j.position,\n    company: j.company,\n    url: j.url || ('https://remoteok.com/remote-jobs/' + j.id),\n    location: j.location || '',\n    budget: (j.salary_min || j.salary_max) ? `${j.salary_min || '?'}-${j.salary_max || '?'} USD/yr` : '',\n    description: strip(j.description) + (Array.isArray(j.tags) ? ' Tags: ' + j.tags.join(', ') : ''),\n    posted_at: toIso(j.date || j.epoch),\n  });\n}\n\n// 4) Jobicy\nfor (const r of safe('Fetch Jobicy')) {\n  for (const j of r.jobs || []) {\n    out.push({\n      source: 'jobicy',\n      external_id: String(j.id),\n      title: j.jobTitle,\n      company: j.companyName,\n      url: j.url,\n      location: j.jobGeo || '',\n      budget: (j.salaryMin || j.salaryMax) ? `${j.salaryMin || '?'}-${j.salaryMax || '?'} ${j.salaryCurrency || ''}${j.salaryPeriod ? '/' + j.salaryPeriod : ''}` : '',\n      description: strip(j.jobDescription || j.jobExcerpt),\n      posted_at: toIso(j.pubDate),\n    });\n  }\n}\n\n// 5) Himalayas (search API)\nfor (const r of safe('Fetch Himalayas')) {\n  for (const j of r.jobs || []) {\n    const link = (typeof j.guid === 'string' && j.guid.startsWith('http')) ? j.guid : j.applicationLink;\n    out.push({\n      source: 'himalayas',\n      external_id: String(j.guid || link),\n      title: j.title,\n      company: j.companyName,\n      url: link,\n      location: Array.isArray(j.locationRestrictions) && j.locationRestrictions.length ? j.locationRestrictions.join(', ') : 'Worldwide',\n      budget: (j.minSalary || j.maxSalary) ? `${j.minSalary || '?'}-${j.maxSalary || '?'} ${j.currency || ''}${j.salaryPeriod ? '/' + j.salaryPeriod : ''}` : '',\n      description: strip(j.description || j.excerpt),\n      posted_at: toIso(j.pubDate),\n    });\n  }\n}\n\n// 6) Working Nomads (returns a plain array of jobs)\nfor (const j of safe('Fetch Working Nomads')) {\n  if (!j.url || !j.title) continue;\n  out.push({\n    source: 'workingnomads',\n    external_id: String(j.url),\n    title: j.title,\n    company: j.company_name,\n    url: j.url,\n    location: j.location || '',\n    budget: '',\n    description: strip(j.description) + (j.tags ? ' Tags: ' + j.tags : ''),\n    posted_at: toIso(j.pub_date),\n  });\n}\n\n// 7) Arbeitnow (remote jobs only)\nfor (const r of safe('Fetch Arbeitnow')) {\n  for (const j of r.data || []) {\n    if (!j.remote) continue;\n    out.push({\n      source: 'arbeitnow',\n      external_id: String(j.slug || j.url),\n      title: j.title,\n      company: j.company_name,\n      url: j.url,\n      location: j.location || 'Remote',\n      budget: '',\n      description: strip(j.description) + (Array.isArray(j.tags) ? ' Tags: ' + j.tags.join(', ') : ''),\n      posted_at: toIso(j.created_at),\n    });\n  }\n}\n\n// 8) Hacker News: comments in the monthly \"Who is hiring\" / \"Seeking freelancer\" threads\nfor (const r of safe('Fetch Hacker News')) {\n  for (const h of r.hits || []) {\n    const story = String(h.story_title || '').toLowerCase();\n    if (!story.includes('hiring') && !story.includes('freelancer')) continue;\n    const text = strip(h.comment_text);\n    if (!text) continue;\n    out.push({\n      source: 'hackernews',\n      external_id: String(h.objectID),\n      title: text.slice(0, 120),\n      company: text.split('|')[0].slice(0, 80),\n      url: 'https://news.ycombinator.com/item?id=' + h.objectID,\n      location: '',\n      budget: '',\n      description: text + ' (Thread: ' + h.story_title + ')',\n      posted_at: toIso(h.created_at),\n    });\n  }\n}\n\n// 9) We Work Remotely (RSS)\nfor (const j of safe('Read We Work Remotely')) {\n  if (!j.link || !j.title) continue;\n  const parts = String(j.title).split(':');\n  out.push({\n    source: 'weworkremotely',\n    external_id: String(j.guid || j.link),\n    title: parts.length > 1 ? parts.slice(1).join(':').trim() : j.title,\n    company: parts.length > 1 ? parts[0].trim() : '',\n    url: j.link,\n    location: j.region || '',\n    budget: '',\n    description: strip(j.content || j.contentSnippet || j.description),\n    posted_at: toIso(j.isoDate || j.pubDate),\n  });\n}\n\n// 10) Reddit r/forhire (RSS) — only [Hiring] posts\nfor (const j of safe('Read Reddit ForHire')) {\n  if (!j.link || !j.title || !/\\[hiring\\]/i.test(j.title)) continue;\n  out.push({\n    source: 'reddit_forhire',\n    external_id: String(j.id || j.guid || j.link),\n    title: String(j.title).replace(/\\[hiring\\]/i, '').trim(),\n    company: 'Reddit r/forhire',\n    url: j.link,\n    location: '',\n    budget: '',\n    description: strip(j.content || j.contentSnippet),\n    posted_at: toIso(j.isoDate || j.pubDate),\n  });\n}\n\nconst cutoff = Date.now() - MAX_AGE_DAYS * 24 * 60 * 60 * 1000;\nconst seen = new Set();\nconst leads = out\n  .filter(l => l.external_id && l.title && l.url)\n  .filter(l => !UNTRUSTED_SOURCES.includes(l.source))\n  .map(l => {\n    const text = (l.title + ' ' + l.description).toLowerCase();\n    const title = String(l.title).toLowerCase();\n    let kw = 0;\n    for (const [k, w] of Object.entries(KEYWORDS)) {\n      if (hasWord(text, k)) kw += w;\n      if (hasWord(title, k)) kw += w;          // matches in the title count double\n    }\n    return { ...l, kw, blocked: BLOCK.some(k => text.includes(k)) };\n  })\n  .filter(l => l.kw >= 3 && !l.blocked)       // at least one core skill, or several general ones\n  .filter(l => !l.posted_at || new Date(l.posted_at).getTime() >= cutoff)\n  .filter(l => { const k = l.source + ':' + l.external_id; if (seen.has(k)) return false; seen.add(k); return true; })\n  .sort((a, b) => (b.kw - a.kw) || String(b.posted_at).localeCompare(String(a.posted_at)));   // best skill match first\n\n// Take turns between sites (best of each first), so long-description sites don't crowd out the rest\nconst bySource = {};\nfor (const l of leads) (bySource[l.source] = bySource[l.source] || []).push(l);\nconst picked = [];\nconst maxCap = Math.max(...Object.values(SOURCE_CAP));\nfor (let round = 0; round < maxCap && picked.length < MAX_PER_RUN; round++) {\n  for (const [src, list] of Object.entries(bySource)) {\n    if (round < capOf(src) && list[round] && picked.length < MAX_PER_RUN) picked.push(list[round]);\n  }\n}\n// If few sites had matches, fill the free spaces with the next-best leads\nfor (const l of leads) {\n  if (picked.length >= MAX_PER_RUN) break;\n  if (!picked.includes(l)) picked.push(l);\n}\nconst finalLeads = picked                         // the rest wait for the next run (they are not saved yet)\n  .map(({ kw, blocked, ...l }) => ({\n    ...l,\n    client_info: l.client_info || (l.company ? `Company named: ${l.company} (posted on ${l.source})` : `No company name given (posted on ${l.source})`),\n    description: l.description.slice(0, 1000)    // shorter text = fewer Groq tokens\n  }));\n\nif (finalLeads.length === 0) return [];\n// One item carrying all leads as JSON -> a single INSERT ... ON CONFLICT DO NOTHING\nreturn [{ json: { count: finalLeads.length, stats, payload: JSON.stringify(finalLeads) } }];\n"
       },
-      "id": "66109353-3b40-42ba-b767-0a71e0302995",
+      "id": "682e24c7-98a6-4a45-b9b7-9be01468040c",
       "name": "Normalize & Filter",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
         2640,
-        144
+        200
       ]
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "INSERT INTO radar_leads (source, external_id, title, company, url, location, budget, description, posted_at)\nSELECT source, external_id, title, company, url, location, budget, description, posted_at\nFROM json_populate_recordset(NULL::radar_leads, $1::json)\nON CONFLICT (source, external_id) DO NOTHING\nRETURNING id, source, title, company, url, location, budget, description;",
+        "query": "INSERT INTO radar_leads (source, external_id, title, company, url, location, budget, client_info, description, posted_at)\nSELECT source, external_id, title, company, url, location, budget, client_info, description, posted_at\nFROM json_populate_recordset(NULL::radar_leads, $1::json)\nON CONFLICT (source, external_id) DO NOTHING\nRETURNING id, source, title, company, url, location, budget, client_info, description;",
         "options": {
           "queryReplacement": "={{ [ $json.payload ] }}"
         }
       },
-      "id": "20bffa95-a1be-4e35-8357-e2f2b393eea8",
+      "id": "db27d1c0-55af-4401-9696-3aa87bd9955c",
       "name": "Save New Leads",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.7,
       "position": [
-        1104,
-        432
+        1100,
+        480
       ],
       "credentials": {
         "postgres": {
-          "id": "n9nCCsU8RmN8S1Rr",
+          "id": "hpxDbgwVw0RTeE3E",
           "name": "Postgres account 2"
         }
       }
@@ -408,13 +408,13 @@
       "parameters": {
         "jsCode": "// Skip runs where every lead was already saved before (duplicates are ignored by the database)\nreturn $input.all().filter(i => i.json.id);"
       },
-      "id": "6cd9ad67-e140-4b4e-892b-925f0524d877",
+      "id": "36563372-d6de-453b-a4aa-6802e68b160d",
       "name": "Only New Leads",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1328,
-        432
+        1320,
+        480
       ]
     },
     {
@@ -425,7 +425,7 @@
         "nodeCredentialType": "groqApi",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ model: 'openai/gpt-oss-120b', temperature: 0.2, reasoning_effort: 'low', max_completion_tokens: 700, messages: [ { role: 'system', content: \"You screen freelance and remote job posts for Adnan, a solo full-stack developer in Lahore, Pakistan (brand: Infinity AI). His skills: website development and web apps (React, Next.js, Node.js, Python, Supabase or Postgres), API development and third-party integrations, e-commerce websites and Shopify stores, payment gateway integration, WhatsApp bots and WhatsApp Business API automation, AI chatbots and AI agents (OpenAI or Groq LLMs, RAG), voice AI, and n8n, Make or Zapier workflow automation. Proof of work: haps.pk (healthcare client) and Nexus Ops, an open-source n8n AI lead pipeline. Score 80-100 = strong fit: matches his skills, open to remote workers in Pakistan or worldwide, contract or project work, realistic for one person. Score 50-79 = partial fit. Score 0-49 = poor fit: mostly unrelated skills, onsite, restricted to US or EU residents only, needs citizenship or clearance, unpaid or equity only, very senior full-time role in an unrelated stack, or looks like spam. Respond ONLY with valid JSON, no markdown: {\\\"score\\\": <integer 0-100>, \\\"fit\\\": \\\"strong|partial|poor\\\", \\\"reason\\\": \\\"<one short sentence>\\\", \\\"suggested_pitch\\\": \\\"<two-sentence opening line Adnan could send, mentioning relevant proof>\\\"}\" }, { role: 'user', content: 'Source: ' + $json.source + '\\nTitle: ' + $json.title + '\\nCompany: ' + ($json.company || 'n/a') + '\\nLocation: ' + ($json.location || 'n/a') + '\\nBudget: ' + ($json.budget || 'n/a') + '\\nDescription: ' + ($json.description || '') } ] }) }}",
+        "jsonBody": "={{ JSON.stringify({ model: 'openai/gpt-oss-120b', temperature: 0.2, reasoning_effort: 'low', max_completion_tokens: 700, messages: [ { role: 'system', content: \"You screen freelance and remote job posts for Adnan, a solo full-stack developer in Lahore, Pakistan (brand: Infinity AI). His skills: website development and web apps (React, Next.js, Node.js, Python, Supabase or Postgres), API development and third-party integrations, e-commerce websites and Shopify stores, payment gateway integration, WhatsApp bots and WhatsApp Business API automation, AI chatbots and AI agents (OpenAI or Groq LLMs, RAG), voice AI, and n8n, Make or Zapier workflow automation. Proof of work: haps.pk (healthcare client) and Nexus Ops, an open-source n8n AI lead pipeline. FIRST judge trust in the client or employer. trust = high: an established, named company or a verified client with a good review history, and a clear, professional post. trust = medium: a named company or verified client but with limited history, or a post that is a little vague. trust = low: unknown or unnamed poster, no verifiable company, vague or copy-paste post, pay that is unrealistically high for the work, requests to pay a fee, buy anything, or move to Telegram or WhatsApp before hiring, crypto or MLM schemes, commission-only pay, or anything that looks like a scam. Adnan only wants reliable, trustworthy clients, so when unsure choose the lower trust level. THEN score fit. Score 80-100 = strong fit: matches his skills, open to remote workers in Pakistan or worldwide, contract or project work, realistic for one person. Score 50-79 = partial fit. Score 0-49 = poor fit: mostly unrelated skills, onsite, restricted to US or EU residents only, needs citizenship or clearance, unpaid or equity only, very senior full-time role in an unrelated stack. If trust is low the score must be below 40. Respond ONLY with valid JSON, no markdown: {\\\"trust\\\": \\\"high|medium|low\\\", \\\"score\\\": <integer 0-100>, \\\"fit\\\": \\\"strong|partial|poor\\\", \\\"reason\\\": \\\"<one short sentence covering trust and fit>\\\", \\\"suggested_pitch\\\": \\\"<two-sentence opening line Adnan could send, mentioning relevant proof>\\\"}\" }, { role: 'user', content: 'Source: ' + $json.source + '\\nTitle: ' + $json.title + '\\nCompany: ' + ($json.company || 'n/a') + '\\nLocation: ' + ($json.location || 'n/a') + '\\nBudget: ' + ($json.budget || 'n/a') + '\\nClient: ' + ($json.client_info || 'n/a') + '\\nDescription: ' + ($json.description || '') } ] }) }}",
         "options": {
           "batching": {
             "batch": {
@@ -436,98 +436,75 @@
           "timeout": 60000
         }
       },
-      "id": "9c919b76-eb3d-4cd4-b773-9fc747f01018",
+      "id": "10b7bde4-cee7-4cab-b19d-6d5b1328de2f",
       "name": "Score with Groq",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        1552,
-        432
+        1540,
+        480
       ],
-      "retryOnFail": true,
-      "maxTries": 2,
-      "waitBetweenTries": 5000,
       "credentials": {
         "groqApi": {
-          "id": "M4Hyxz7RfyKGPcav",
+          "id": "cS25baJmRn9JQANw",
           "name": "Groq account"
         }
       },
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 5000,
       "onError": "continueRegularOutput"
     },
     {
       "parameters": {
-        "jsCode": "// Pair each Groq answer with the lead it scored, and parse the JSON safely.\nconst leads = $('Only New Leads').all();\nreturn $input.all().map((item, i) => {\n  const lead = (leads[i] && leads[i].json) || {};\n  let r = { score: 0, fit: 'poor', reason: 'Scoring failed', suggested_pitch: '' };\n  try {\n    const content = item.json.choices[0].message.content;\n    const match = String(content).match(/\\{[\\s\\S]*\\}/);\n    r = { ...r, ...JSON.parse(match ? match[0] : content) };\n  } catch (e) {\n    r.reason = 'Scoring failed: ' + (item.json.error ? JSON.stringify(item.json.error).slice(0, 150) : e.message);\n  }\n  const score = Math.max(0, Math.min(100, parseInt(r.score, 10) || 0));\n  return {\n    json: {\n      id: lead.id,\n      source: lead.source,\n      title: lead.title,\n      company: lead.company,\n      url: lead.url,\n      budget: lead.budget,\n      location: lead.location,\n      score,\n      fit: String(r.fit || '').slice(0, 20),\n      reason: String(r.reason || '').slice(0, 500),\n      suggested_pitch: String(r.suggested_pitch || '').slice(0, 800),\n    }\n  };\n});\n"
+        "jsCode": "// Pair each Groq answer with the lead it scored, and parse the JSON safely.\nconst leads = $('Only New Leads').all();\nreturn $input.all().map((item, i) => {\n  const lead = (leads[i] && leads[i].json) || {};\n  let r = { score: 0, fit: 'poor', trust: 'low', reason: 'Scoring failed', suggested_pitch: '' };\n  try {\n    const content = item.json.choices[0].message.content;\n    const match = String(content).match(/\\{[\\s\\S]*\\}/);\n    r = { ...r, ...JSON.parse(match ? match[0] : content) };\n  } catch (e) {\n    r.reason = 'Scoring failed: ' + (item.json.error ? JSON.stringify(item.json.error).slice(0, 150) : e.message);\n  }\n  const trust = ['high', 'medium', 'low'].includes(String(r.trust).toLowerCase()) ? String(r.trust).toLowerCase() : 'low';\n  let score = Math.max(0, Math.min(100, parseInt(r.score, 10) || 0));\n  if (trust === 'low') score = Math.min(score, 39);   // unknown or doubtful clients can never become hot leads\n  return {\n    json: {\n      id: lead.id,\n      source: lead.source,\n      title: lead.title,\n      company: lead.company,\n      url: lead.url,\n      budget: lead.budget,\n      location: lead.location,\n      client_info: lead.client_info,\n      score,\n      trust,\n      fit: String(r.fit || '').slice(0, 20),\n      reason: String(r.reason || '').slice(0, 500),\n      suggested_pitch: String(r.suggested_pitch || '').slice(0, 800),\n    }\n  };\n});\n"
       },
-      "id": "cf5636a8-f688-4841-b97b-f1a9c3306b63",
+      "id": "1392a11c-7f35-4f6e-b62a-dca1e6b8bdd0",
       "name": "Parse Score",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
         1760,
-        432
+        480
       ]
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "UPDATE radar_leads\nSET score = $1, fit = $2, reason = $3, suggested_pitch = $4, status = 'scored'\nWHERE id = $5\nRETURNING id;",
+        "query": "UPDATE radar_leads\nSET score = $1, fit = $2, reason = $3, suggested_pitch = $4, trust = $5, status = 'scored'\nWHERE id = $6\nRETURNING id;",
         "options": {
-          "queryReplacement": "={{ [ $json.score, $json.fit, $json.reason, $json.suggested_pitch, $json.id ] }}"
+          "queryReplacement": "={{ [ $json.score, $json.fit, $json.reason, $json.suggested_pitch, $json.trust, $json.id ] }}"
         }
       },
-      "id": "0a54cb61-1aac-434b-8f96-7996558b1a18",
+      "id": "2d6b8a84-409d-4b77-9528-8c7c00ac15de",
       "name": "Save Score",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.7,
       "position": [
-        1984,
-        432
+        1980,
+        480
       ],
       "credentials": {
         "postgres": {
-          "id": "n9nCCsU8RmN8S1Rr",
+          "id": "hpxDbgwVw0RTeE3E",
           "name": "Postgres account 2"
         }
       }
     },
     {
       "parameters": {
-        "jsCode": "// Keep only hot leads (score >= 80) and build the alert text.\nconst HOT = 80;\nreturn $('Parse Score').all()\n  .filter(i => i.json.score >= HOT)\n  .map(i => {\n    const l = i.json;\n    const content = [\n      `🔥 **Hot lead (${l.score}/100)**: ${l.title}`,\n      `🏢 ${l.company || 'Unknown'} · 🌍 ${l.location || 'n/a'} · 💰 ${l.budget || 'n/a'} · 📡 ${l.source}`,\n      `✅ ${l.reason}`,\n      `💬 Pitch idea: ${l.suggested_pitch}`,\n      `🔗 <${l.url}>`,\n    ].join('\\n').slice(0, 1900);\n    return { json: { ...l, content } };\n  });\n"
+        "jsCode": "// Keep only hot leads (score >= 80) and build the alert text.\nconst HOT = 80;\nreturn $('Parse Score').all()\n  .filter(i => i.json.score >= HOT && i.json.trust !== 'low')\n  .map(i => {\n    const l = i.json;\n    const content = [\n      `🔥 **Hot lead (${l.score}/100)**: ${l.title}`,\n      `🏢 ${l.company || 'Unknown'} · 🌍 ${l.location || 'n/a'} · 💰 ${l.budget || 'n/a'} · 📡 ${l.source}`,\n      `🛡️ Trust: ${l.trust} — ${l.client_info || 'n/a'}`,\n      `✅ ${l.reason}`,\n      `💬 Pitch idea: ${l.suggested_pitch}`,\n      `🔗 <${l.url}>`,\n    ].join('\\n').slice(0, 1900);\n    return { json: { ...l, content } };\n  });\n"
       },
-      "id": "d8bd967a-281f-4124-a0c4-d17f38b76d6f",
+      "id": "fe69889b-b4ae-4d64-9636-f3d8f6241822",
       "name": "Hot Leads (80+)",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2208,
-        432
+        2200,
+        480
       ]
-    },
-    {
-      "parameters": {
-        "authentication": "webhook",
-        "content": "={{ $json.content }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.discord",
-      "typeVersion": 2,
-      "position": [
-        2432,
-        432
-      ],
-      "id": "34a9447c-2cc0-4530-84ed-42b0447d8128",
-      "name": "Discord",
-      "webhookId": "31cbd7be-d980-4f0a-b12c-ddd25af3ec63",
-      "credentials": {
-        "discordWebhookApi": {
-          "id": "ZaXjXvZkEg3fstNn",
-          "name": "Discord Webhook URL"
-        }
-      }
     }
   ],
-  "pinData": {},
   "connections": {
     "Every 4 Hours": {
       "main": [
@@ -733,30 +710,12 @@
           }
         ]
       ]
-    },
-    "Hot Leads (80+)": {
-      "main": [
-        [
-          {
-            "node": "Discord",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
     }
   },
-  "active": true,
+  "active": false,
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate"
+    "timezone": "Asia/Karachi"
   },
-  "versionId": "f8d7d37d-1925-480d-beb2-daf8c2b8aec0",
-  "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "75e9923ddbe32d8f4d7116f6273b5a0438837986df6a2fae1f278c1922e6ee47"
-  },
-  "nodeGroups": [],
-  "id": "u1YJBlMaGxSTl6cM",
-  "tags": []
+  "pinData": {}
 }
